@@ -6,8 +6,8 @@ Editing History:
 - 1/3/21
 """
 
-HRS_TO_SECS = 60*60
-OD_TO_COUNT_CONC = 1e15
+HRS_TO_SECS = 60*60 # seconds per hour
+OD_TO_COUNT_CONC = 1e15 # number of cells per OD per meter^3
 
 MODEL_PARAMETER_LIST = ['PermMCPPropanediol','PermMCPPropionaldehyde','PermMCPPropanol','PermMCPPropionyl','PermMCPPropionate',
                         'nmcps',
