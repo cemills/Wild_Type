@@ -26,13 +26,13 @@ class WildType:
                  cell_surface_area, cell_volume, external_volume):
         """
         Initializes parameters to be used numerical scheme
-        :param optical_density_ts: optical density at any given time during experiment
-        :param fin_exp_time: duration of the experiment
-        :param mcp_surface_area: surface area of cell
-        :param mcp_volume: volume of microcompartment
-        :param cell_surface_area: cell surface area
-        :param cell_volume: cell volume
-        :param external_volume: external volume amount in metres^3
+        :param optical_density_ts: optical density at any given time during experiment (in OD)
+        :param fin_exp_time: duration of the experiment (in hours)
+        :param mcp_surface_area: surface area of cell (in metres^2)
+        :param mcp_volume: volume of microcompartment (in metres^3)
+        :param cell_surface_area: cell surface area (in metres^2)
+        :param cell_volume: cell volume (in metres^3)
+        :param external_volume: external volume amount (in metres^3)
         """
 
         # geometric parameters
@@ -209,7 +209,7 @@ class WildType:
         for i in range(self.n_discrete_tp - 1):
 
             #create OD problem
-            params["ncells"] = self.optical_density_ts_disc[i] * OD_TO_COUNT_CONC
+            params["ncells"] = self.optical_density_ts_disc[i] * OD_TO_COUNT_CONC * self.external_volume
             ds = lambda t, x: self._sderiv(t, x, params)
             ds_jac = lambda t, x: self._sderiv_jac_conc_fun(t, x, params)
 
