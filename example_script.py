@@ -123,6 +123,8 @@ plt.ylabel('concentration (mM)')
 plt.show()
 
 init_conds_list = np.array([val for val in init_conds.values()])
+
+# conservation of mass formula
 mcp_masses_org = init_conds_list[:5] * mcp_volume * params["nmcps"] * wild_type_model.optical_density_ts_disc[0]\
                  * OD_TO_COUNT_CONC * external_volume
 cell_masses_org = init_conds_list[5:10] * cell_volume * wild_type_model.optical_density_ts_disc[0]* OD_TO_COUNT_CONC\
@@ -131,7 +133,7 @@ ext_masses_org = init_conds_list[10:] * external_volume
 
 mcp_masses_fin = sol_concat[-1,:5] * mcp_volume * params["nmcps"] * wild_type_model.optical_density_ts_disc[-1] \
                  * OD_TO_COUNT_CONC * external_volume
-cell_masses_fin = sol_concat[-1,5:10] * cell_volume * wild_type_model.optical_density_ts_disc[-1]* OD_TO_COUNT_CONC \
+cell_masses_fin = sol_concat[-1,5:10] * cell_volume * wild_type_model.optical_density_ts_disc[-1] * OD_TO_COUNT_CONC \
                   * external_volume
 ext_masses_fin = sol_concat[-1,10:] * external_volume
 
