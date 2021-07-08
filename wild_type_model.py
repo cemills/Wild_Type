@@ -203,8 +203,8 @@ class WildType:
         y0 = np.zeros(self.nvars)
         for i, init_names in enumerate(VARIABLE_INIT_NAMES):
             y0[i] = init_conds[init_names]
-        time_concat = [0]
-        sol_concat = np.array([y0])
+        time_concat = []
+        sol_concat = []
 
         for i in range(self.n_discrete_tp - 1):
 
@@ -213,17 +213,18 @@ class WildType:
             ds = lambda t, x: self._sderiv(t, x, params)
             ds_jac = lambda t, x: self._sderiv_jac_conc_fun(t, x, params)
 
-            #solve OD
+            #solve ODE
             sol = solve_ivp(ds, [self.time_discrete[i] * HRS_TO_SECS, self.time_discrete[i + 1] * HRS_TO_SECS], y0, method="BDF", jac=ds_jac,
-                            t_eval=np.linspace(self.time_discrete[i] * HRS_TO_SECS, self.time_discrete[i + 1] * HRS_TO_SECS, num=5), atol=1e-7,
-                            rtol=1e-7)
+                            t_eval=np.linspace(self.time_discrete[i] * HRS_TO_SECS, self.time_discrete[i + 1] * HRS_TO_SECS, num=5), atol=1e-5,
+                            rtol=1e-5)
 
             # store
             time_concat = np.concatenate((time_concat, sol.t))
-            sol_concat = np.concatenate((sol_concat, sol.y.T))
+            sol_concat.append(sol.y.T)
 
             # reinitialize
             y0 = sol.y[:, -1]
+        sol_concat = np.concatenate(sol_concat)
 
         return time_concat, sol_concat
 

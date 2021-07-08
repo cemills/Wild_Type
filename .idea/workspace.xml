@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="889ed0b7-9a9c-494f-aad5-09d5214f8238" name="Default Changelist" comment="" />
+    <list default="true" id="889ed0b7-9a9c-494f-aad5-09d5214f8238" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/example_script_sigmoid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/example_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wild_type_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/wild_type_model.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,5 +42,16 @@
       <updated>1625612179316</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
