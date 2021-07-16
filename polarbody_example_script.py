@@ -52,6 +52,8 @@ external_volume = 5e-5  # [=] m^3
 wild_type_model = WildType(spl, Time.iloc[-1], mcp_surface_area, mcp_volume,
                            cell_surface_area, cell_volume, external_volume)
 
+# Permeability at surface of polar body
+# Assumed to be approximately free diffusion (see Jakobson et al)
 PermMCPPolar = 10     # [=] m/s
 PermMCPNonPolar = 10  # [=] m/s
 
